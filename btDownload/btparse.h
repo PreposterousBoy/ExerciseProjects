@@ -13,7 +13,8 @@ struct BCode_INT{
 };
 
 struct BCode_STR{
-    std::string operator()(std::string& str);
+    typedef std::string::iterator string_itr;
+    std::string operator()(string_itr& itr);
     std::string s;
 };
 

@@ -8,7 +8,31 @@
  * @brief BCodeINT::operator()
  * @return long long
  */
-long long BCode_INT::operator()(std::string &&str) {
+long long BCode_INT::operator()(std::string::iterator& itr) {
+    auto head_itr = itr;
+    while(*itr != 'e') {
+        itr++;
+    }
+
+    std::string number {head_itr, itr};
+    long long res = std::stoll(number);
+    return res;
+
+}
+
+std::string BCode_STR::operator()(string_itr& itr) {
+    const auto begin_itr = itr;
+    auto tmp_itr = itr;
+    while( *itr != ':') {
+        itr++
+    }
+
+    std::string num {begin_itr, itr};
+
+    int str_num = std::stoi(num);
+
+    
+
 
 }
 
