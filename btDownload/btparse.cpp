@@ -22,7 +22,7 @@ long long BCode_INT::operator()(std::string::iterator& itr) {
 
 std::string BCode_STR::operator()(string_itr& itr) {
     const auto begin_itr = itr;
-    auto tmp_itr = itr;
+    //auto tmp_itr = itr;
     while( *itr != ':') {
         itr++
     }
@@ -31,10 +31,20 @@ std::string BCode_STR::operator()(string_itr& itr) {
 
     int str_num = std::stoi(num);
 
-    
-
-
+    std::string result{itr,itr+str_num};
+    itr+=str_num;
+    return result;
 }
+
+template< typename T>
+std::list<T> BCode_LIST<T>::operator()(string_itr& itr) {
+
+    while( *itr != 'e'){
+
+    }
+}
+
+
 
 
 class ParseSheduel {

@@ -3,8 +3,37 @@
 
 #include<string>
 #include<list>
+#include<vector>
 #include<functional>
 
+/**
+ * Announce List
+ *
+ */
+class Announce_list {
+public:
+
+    std::vector<std::string> alist;
+
+};
+
+
+
+/**
+ *  单个文件的储存地址
+ */
+class File {
+public:
+    File() = default;
+    File(std::string& pp, long long ll):path(pp),lenth(ll) {}
+    std::string path;
+    long long lenth;
+};
+
+class DownloadFiles {
+public:
+  std::vector<File> files;
+};
 
 
 struct BCode_INT{
@@ -21,7 +50,8 @@ struct BCode_STR{
 
 template <typename T>
 struct BCode_LIST{
-    std::list<T> operator()(std::string&& str);
+    typedef std::string::iterator string_itr;
+    std::list<T> operator()(string_itr& str);
     std::list<T> l;
 };
 
